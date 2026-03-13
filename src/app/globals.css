@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* 1. Define the "Source of Truth" in the Theme */
+@theme {
+  --font-sans: "Geist Sans", "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Light Mode Defaults (Clean, crisp, with neon accents) */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(240 10% 4%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(240 10% 4%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(240 10% 4%);
+
+  /* Slightly darker pink/cyan for light mode readability */
+  --color-primary: hsl(302 100% 45%); 
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(184 100% 35%); 
+  --color-secondary-foreground: hsl(0 0% 100%);
+
+  --color-muted: hsl(240 5% 96%);
+  --color-muted-foreground: hsl(240 5% 45%);
+
+  /* The blue from your SVG button */
+  --color-accent: hsl(223 100% 50%); 
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  --color-border: hsl(240 5% 90%);
+  --color-input: hsl(240 5% 90%);
+  --color-ring: hsl(302 100% 45%);
+
+  --radius-lg: 0.5rem;
+}
+
+/* 2. Dark Mode Overrides (Matched exactly to your SVG) */
+@layer base {
+  .dark {
+    /* Pitch Black Background from the SVG */
+    --color-background: hsl(0 0% 0%); 
+    --color-foreground: hsl(0 0% 100%);
+
+    /* Very dark gray for cards/panels so they lift off the true black */
+    --color-card: hsl(240 5% 6%);
+    --color-card-foreground: hsl(0 0% 100%);
+
+    --color-popover: hsl(240 5% 6%);
+    --color-popover-foreground: hsl(0 0% 100%);
+
+    /* The exact #FF1CF7 Hot Pink from your SVG gradient */
+    --color-primary: hsl(302 100% 55%); 
+    --color-primary-foreground: hsl(0 0% 100%);
+
+    /* The exact #00F0FF Neon Cyan from your SVG gradient */
+    --color-secondary: hsl(184 100% 50%);
+    --color-secondary-foreground: hsl(240 10% 4%);
+
+    --color-muted: hsl(240 5% 15%);
+    --color-muted-foreground: hsl(240 5% 65%);
+
+    /* The exact #497CFF Blue from your SVG button */
+    --color-accent: hsl(223 100% 64%); 
+    --color-accent-foreground: hsl(0 0% 100%);
+
+    --color-destructive: hsl(0 62.8% 30.6%);
+    --color-destructive-foreground: hsl(0 0% 100%);
+
+    --color-border: hsl(240 5% 15%);
+    --color-input: hsl(240 5% 15%);
+    --color-ring: hsl(302 100% 55%); /* Pink glow on focus */
+  }
+}
+
+/* 3. Apply the styles to the elements */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply font-sans;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Custom Variant for Dark Mode support */
+@custom-variant dark (&:is(.dark *));
