@@ -2,6 +2,8 @@
 
 An end‑to‑end **agentic Retrieval‑Augmented Generation (RAG)** system built on **Next.js App Router**, **LangGraph**, **Google Gemini (chat + embeddings)**, **MongoDB vector search**, and **Upstash Redis**.
 
+![Landing Page](./public/githubDemo.png)
+
 **Turn static documents into an interactive AI knowledge base.**
 ![Landing Page](./public/heroImg.png)
 
