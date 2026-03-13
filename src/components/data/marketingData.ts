@@ -10,7 +10,7 @@ export const md = {
     },
     secondaryCTA: {
       text: "View Source Code",
-      link: "",
+      link: "https://github.com/thrivingSec/TalkToYourDoc",
     },
     // note: "This is a personal project built to explore LLM-powered document retrieval systems and showcase engineering skills.",
   },
