@@ -5,7 +5,6 @@ An end‑to‑end **agentic Retrieval‑Augmented Generation (RAG)** system buil
 ![Landing Page](./public/githubDemo.png)
 
 **Turn static documents into an interactive AI knowledge base.**
-![Landing Page](./public/heroImg.png)
 
 Users can:
 
@@ -19,6 +18,9 @@ Users can:
 - **View conversation history** per document
 
 ---
+**Interact with your docs through an AI powered dashboard.**
+
+![Landing Page](./public/heroImg.png)
 
 ### Tech Stack
 
