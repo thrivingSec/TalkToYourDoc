@@ -8,7 +8,7 @@ import {
   StoreMessage,
 } from "./storeTypes";
 
-const API_BASE = `http://localhost:3000/api/rag`;
+const API_BASE = `https://talk-to-your-doc-fk7e.vercel.app`;
 
 export const useStore = create<STORE>((set, get) => ({
   // UI
