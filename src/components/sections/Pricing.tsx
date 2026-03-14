@@ -6,17 +6,17 @@ const Pricing = () => {
   const router = useRouter()
   const data = md.pricing
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative py-32 w-full h-screen">
 
-      <div className="mx-auto max-w-7xl px-6 flex flex-col items-center gap-16" id='pricing'>
+      <div className="mx-auto max-w-5xl px-6 flex flex-col items-center gap-16" id='pricing'>
 
         {/* heading */}
         <div className="w-full flex flex-col items-center justify-center gap-10">
-          <div className="text-4xl lg:text-6xl font-semibold bg-clip-text text-transparent bg-linear-to-br from-primary via-accent to-secondary">
+          <div className="text-3xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-linear-to-br from-primary via-accent to-secondary">
             {data.title}
           </div>
 
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm">
             {data.description}
           </p>
         </div>
@@ -26,7 +26,7 @@ const Pricing = () => {
 
           <div className="text-center">
 
-            <div className="text-5xl font-semibold">
+            <div className="text-4xl font-semibold">
               Free
             </div>
 
