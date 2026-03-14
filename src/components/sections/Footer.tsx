@@ -7,8 +7,8 @@ import { IoPersonCircle } from "react-icons/io5";
 const Footer = () => {
   const data = md.footer;
   return (
-    <div className="w-full flex items-center justify-center" >
-      <footer className="relative border-t border-border py-24 w-full max-w-7xl overflow-hidden mx-auto">
+    <div className="w-full flex items-center justify-center pt-16" >
+      <footer className="relative border-t border-border py-24 w-full max-w-5xl overflow-hidden mx-auto">
       {/* background glow */}
       <div className="absolute inset-0 -z-10 bg-linear-to-t from-primary/5 via-transparent to-transparent" />
 
@@ -22,7 +22,7 @@ const Footer = () => {
                 Talk To Your Docs
               </div>
 
-              <p className="text-muted-foreground mt-4 leading-relaxed">
+              <p className="text-muted-foreground mt-4 leading-relaxed text-sm">
                 {data.tagline}
               </p>
             </div>

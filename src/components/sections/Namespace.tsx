@@ -4,18 +4,18 @@ import { md } from "../data/marketingData";
 const Namespace = () => {
   const data = md.namespace;
   return (
-    <section className="relative py-32 overflow-hidden w-full max-w-7xl">
+    <section className="relative overflow-hidden w-full max-w-5xl">
       {/* background glow */}
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-200 h-100 bg-secondary/20 blur-[120px] -z-10" />
 
       <div className="mx-auto px-6 flex flex-col gap-20 items-center justify-center" id="namespace">
         {/* heading */}
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-6xl font-semibold bg-clip-text text-transparent bg-linear-to-br from-primary via-accent to-secondary">
+          <h2 className="text-3xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-linear-to-br from-primary via-accent to-secondary">
             {data.title}
           </h2>
 
-          <p className="text-muted-foreground mt-6 text-lg">
+          <p className="text-muted-foreground mt-6 text-sm">
             {data.description}
           </p>
         </div>
@@ -29,7 +29,7 @@ const Namespace = () => {
               className="row-span-1 flex flex-col gap-3 items-start justify-center p-2 border-t border-border"
               key={i}
             >
-              <h2 className="text-xl text-foreground tracking-tight">
+              <h2 className="text-sm text-foreground tracking-tight">
                 {item}
               </h2>
             </div>
