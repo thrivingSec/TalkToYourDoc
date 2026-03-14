@@ -19,7 +19,7 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <div className="w-full px-4 py-4 flex-col lg:flex items-center justify-center fixed top-0 left-0 z-10 bg-background text-foreground">
-      <header className="w-full flex flex-1 items-center justify-between mx-auto lg:max-w-7xl p-2 border border-border rounded-lg">
+      <header className="w-full flex flex-1 items-center justify-between mx-auto lg:max-w-5xl p-2 border border-border rounded-lg">
         {/* logo - left */}
         <div className="flex flex-1 items-center gap-2 justify-start">
           <div className="flex items-center gap-2 ml-2">
