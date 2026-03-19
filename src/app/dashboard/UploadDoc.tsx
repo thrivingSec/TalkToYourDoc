@@ -1,10 +1,19 @@
 "use client";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/store/store";
 import toast from "react-hot-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface INGESTRES {
   success: boolean;
@@ -22,7 +31,7 @@ const UploadDoc = () => {
   const [file, setFile] = useState<File | null>();
   const [ingesting, setIngesting] = useState(false);
   const [result, setResult] = useState("");
-  const { addDocument } = useStore();
+  const { addDocument, namespaces, fetchNamespaces } = useStore();
 
   function handleFile(e: ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
@@ -30,6 +39,13 @@ const UploadDoc = () => {
       setFile(files[0]);
     }
   }
+
+  useEffect(() => {
+    if (namespaces === null) {
+      fetchNamespaces();
+    }
+  }, [fetchNamespaces]);
+
   async function handleFileUpload(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!file || !namespace) return;
@@ -58,40 +74,47 @@ const UploadDoc = () => {
     } catch (error) {
       // Set error in result
       console.log("Error in documnet reponse :: ", error);
-      setResult("Error in document ingestion, please try again")
+      setResult("Error in document ingestion, please try again");
     } finally {
       setIngesting(false);
     }
   }
   return (
-    <form
-      onSubmit={handleFileUpload}
-      className="flex flex-col gap-5"
-    >
-
-      <Input
+    <form onSubmit={handleFileUpload} className="flex flex-col gap-5">
+      {/* <Input
         type="text"
         placeholder="Namespace"
         required
         value={namespace}
         onChange={(e) => setNamespace(e.target.value)}
-      />
+      /> */}
 
-      <Input
-        type="file"
-        onChange={handleFile}
-      />
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">
+            {namespace ? namespace : "Namespace"}
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Available Namespaces</DropdownMenuLabel>
+            {namespaces &&
+              namespaces.map((ns, index) => (
+                <DropdownMenuItem key={index} onClick={(e) => setNamespace(ns)}>
+                  {ns}
+                </DropdownMenuItem>
+              ))}
+            {!namespaces && null}
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
-      <Button
-        type="submit"
-        disabled={ingesting}
-        className="w-full"
-      >
+      <Input type="file" onChange={handleFile} />
+
+      <Button type="submit" disabled={ingesting} className="w-full">
         {ingesting ? "Uploading..." : "Ingest Document"}
       </Button>
-
     </form>
-
   );
 };
 

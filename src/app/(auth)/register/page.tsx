@@ -10,6 +10,11 @@ interface FORMDATA {
   password: string;
 }
 
+interface REGISTERRES {
+  success:boolean;
+  message:string;
+}
+
 const RegisterPage = () => {
   const [formData, setFormData] = useState<FORMDATA>({
     name: "",
@@ -37,16 +42,20 @@ const RegisterPage = () => {
     }
     setRegistering(true);
     try {
-      const response = await axios.post(
+      const response = await axios.post<REGISTERRES>(
         "https://talk-to-your-doc-fk7e.vercel.app/api/auth/register",
         formData,
       );
-      console.log("Response :: \n", response?.data);
-      sessionStorage.setItem(
+      const resData = response.data;
+      if(resData.success === true){
+        sessionStorage.setItem(
         "registration_key",
         formData.email + formData.name,
       );
+      toast.success(`${resData.message}`);
       router.push("/verify");
+      }
+      
     } catch (error) {
       console.log("Error in user registration from :: ", error);
     } finally {
