@@ -3,6 +3,7 @@ import { create } from "zustand";
 import {
   DocumentResponse,
   MessagesResponse,
+  NamespaceResponse,
   STORE,
   StoreDocument,
   StoreMessage,
@@ -99,4 +100,22 @@ export const useStore = create<STORE>((set, get) => ({
       set({ isMessagesLoading: false });
     }
   },
+
+  //namespaces
+  namespaces:null,
+  isNamespacesLoading:false,
+  setNamespaces: (data) => set({namespaces:data}),
+  fetchNamespaces: async () => {
+    set({isNamespacesLoading:true})
+    try {
+      const response = await axios.get<NamespaceResponse>(`${API_BASE}/namespaces`, {withCredentials:true});
+      const resData = response.data;
+      set({namespaces:resData.data?.docTypes})
+    } catch (error) {
+      console.log("Error in fetching namespaces :: ", error);
+      set({namespaces:null})
+    } finally{
+      set({isNamespacesLoading:false})
+    }
+  }
 }));

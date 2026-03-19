@@ -22,6 +22,14 @@ export interface MessagesResponse {
   data: StoreMessage[];
 }
 
+export interface NamespaceResponse {
+  success:boolean;
+  message:string;
+  data?:{
+    docTypes:string[]
+  }
+}
+
 export interface STORE {
   // UI State
   isSidebarOpen: boolean;
@@ -45,6 +53,12 @@ export interface STORE {
   addMessage: (message: StoreMessage) => void;
   fetchMessages: () => Promise<void>;
   clearMessages: () => void;
+
+  // Namespace State
+  namespaces: Array<string> | null;
+  isNamespacesLoading:boolean;
+  setNamespaces: (data:Array<string>) => void;
+  fetchNamespaces: () => Promise<void>;
 }
 
 

@@ -24,8 +24,10 @@ const SigninPage = () => {
         password: formData.password,
         redirect: true,
       });
+      toast.success("Sign in successfull")
     } catch (error) {
       console.log("Error in user registration from :: ", error);
+      toast.error("Sign in failed")
     } finally {
       setSignin(false);
       setFormData({ email: "", password: "" });
