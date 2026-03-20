@@ -43,7 +43,7 @@ const RegisterPage = () => {
     setRegistering(true);
     try {
       const response = await axios.post<REGISTERRES>(
-        "https://talk-to-your-doc-fk7e.vercel.app/api/auth/register",
+        "https://talk-to-your-doc.vercel.app/api/auth/register",
         formData,
       );
       const resData = response.data;

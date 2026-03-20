@@ -51,7 +51,7 @@ const VerifyPage = () => {
     setVerifying(true);
     try {
       const response = await axios.post<VERIFYRES>(
-        `https://talk-to-your-doc-fk7e.vercel.app/api/auth/verify`,
+        `https://talk-to-your-doc.vercel.app/api/auth/verify`,
         formData,
       );
       const resData = response.data;
