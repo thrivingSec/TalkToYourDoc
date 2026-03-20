@@ -55,7 +55,7 @@ const UploadDoc = () => {
     setIngesting(true);
     try {
       const response = await axios.post<INGESTRES>(
-        "https://talk-to-your-doc-fk7e.vercel.app/api/rag/ingest",
+        "https://talk-to-your-doc.vercel.app/api/rag/ingest",
         formData,
         { withCredentials: true },
       );
