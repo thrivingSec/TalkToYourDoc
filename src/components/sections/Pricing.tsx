@@ -38,9 +38,9 @@ const Pricing = () => {
 
           <ul className="flex flex-col gap-4 text-muted-foreground">
             {data.details.map((item, i) => (
-              <li key={i} className="flex gap-3 text-sm">
-                <span className="h-2 w-2 mt-2 rounded-full bg-accent"></span>
-                {item}
+              <li key={i} className="flex gap-3 text-sm items-start">
+                <span className="h-2 w-2 mt-2 rounded-full bg-accent shrink-0"></span>
+                <p>{item}</p>
               </li>
             ))}
           </ul>

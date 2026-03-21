@@ -25,7 +25,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2 ml-2">
             {/* name */}
             <Link className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-br from-primary via-accent to-secondary" href={"#hero"}>
-              TalkToYourDoc
+              TalkToYourDocs
             </Link>
           </div>
         </div>
@@ -117,7 +117,7 @@ const Navbar = () => {
         </div>
       </header>
       {menu ? (
-        <div className="w-1/2 h-full bg-popover flex flex-col lg:hidden text-popover-foreground gap-5 mt-5">
+        <div className="w-full h-full py-10 px-10 rounded-2xl bg-popover flex flex-col lg:hidden text-popover-foreground gap-5 mt-5">
           {/* primary cta */}
           <div className="flex flex-1">
             <Button className="bg-primary text-primary-foreground p-5 rounded-2xl transition-all duration-300 cursor-pointer">
@@ -127,7 +127,7 @@ const Navbar = () => {
           {/* navigations */}
           <div className="flex-col items-start justify-between gap-y-3 border-r-2 border-border pr-5">
             {navLinks.map((link, index) => (
-              <nav className="px-1" key={index}>
+              <nav className="px-1" key={index} onClick={e => setMenu(false)}>
                 <a
                   href={`${link.href}`}
                   className="text-card-foreground hover:text-primary transition-all duration-300"
