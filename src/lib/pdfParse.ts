@@ -1,4 +1,9 @@
 import "@ungap/with-resolvers";
+if (typeof global.DOMMatrix === "undefined") {
+  global.DOMMatrix = class {
+    constructor() {}
+  } as any;
+}
 import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 GlobalWorkerOptions.workerSrc = new URL(
