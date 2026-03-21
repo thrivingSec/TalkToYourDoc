@@ -1,7 +1,7 @@
 
 import { Document } from "@langchain/core/documents";
 import { readFile } from "fs/promises";
-import { PDFParse } from "pdf-parse";
+import { extractPdfText } from "@/lib/pdfParse";
 
 type SupportedMime =
   | "application/pdf"
@@ -26,14 +26,10 @@ async function loadPdf(
 ): Promise<Document[]> {
   const buffer = await readFile(filePath);
 
-  const parser = new PDFParse({ data: buffer });
-
-  const result = await parser.getText();
-
-  await parser.destroy();
+  const result = await  extractPdfText(buffer);
 
   // Split by PDF page break
-  const pages = result.text.split("\f");
+  const pages = result.split("\f");
 
   return pages
     .map((page, index) => page.trim())
