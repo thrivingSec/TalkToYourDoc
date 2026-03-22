@@ -29,7 +29,7 @@ const Working = () => {
             <div key={i} className="relative flex gap-8 items-start">
 
               {/* node */}
-              <div className="relative z-10 flex items-center justify-center h-10 w-10 rounded-full bg-linear-to-br from-primary via-accent to-secondary text-white font-semibold shadow-lg">
+              <div className="relative z-5 flex items-center justify-center h-10 w-10 rounded-full bg-linear-to-br from-primary via-accent to-secondary text-white font-semibold shadow-lg">
                 {i + 1}
               </div>
 

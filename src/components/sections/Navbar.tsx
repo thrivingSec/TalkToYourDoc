@@ -25,7 +25,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2 ml-2">
             {/* name */}
             <Link className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-br from-primary via-accent to-secondary" href={"#hero"}>
-              TalkToYourDoc
+              TalkToYourDocs
             </Link>
           </div>
         </div>

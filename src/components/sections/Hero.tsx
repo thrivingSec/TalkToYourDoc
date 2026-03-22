@@ -22,7 +22,7 @@ const Hero = () => {
           {md.hero.subtitle}
         </h2>
 
-        <p className="text-center text-sm lg:text-xl max-w-3xl text-muted-foreground">
+        <p className="text-center text-sm max-w-3xl text-muted-foreground">
           {md.hero.description}
         </p>
       </div>
