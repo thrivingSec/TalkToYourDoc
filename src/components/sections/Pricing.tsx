@@ -39,7 +39,7 @@ const Pricing = () => {
           <ul className="flex flex-col gap-4 text-muted-foreground">
             {data.details.map((item, i) => (
               <li key={i} className="flex gap-3">
-                <span className="h-2 w-2 mt-2 rounded-full bg-accent"></span>
+                <span className="h-2 w-2 mt-2 rounded-full bg-accent shrink-0"></span>
                 {item}
               </li>
             ))}
