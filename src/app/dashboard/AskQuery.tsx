@@ -5,6 +5,9 @@ import { useStore } from "@/store/store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ThemeToggler from "@/components/ThemeComponnets/ThemeToggler";
+import ReactMarkdown from "react-markdown";
+import toast from "react-hot-toast";
+
 
 interface QUERYRES {
   success: boolean;
@@ -29,7 +32,6 @@ const AskQuery = () => {
   async function handleQuery(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const documentID = activeDoc?.documentID;
-    const formData = new FormData();
     if (!documentID) return;
     if (!query || query.length < 5) return;
     const data = { query, documentID };
@@ -42,7 +44,7 @@ const AskQuery = () => {
         { withCredentials: true },
       );
       if (!response.data) {
-        console.log("No data was returned");
+        toast.error("Error in responding to the query.")
         return;
       }
       const rawData = response.data.data;
@@ -116,7 +118,9 @@ const AskQuery = () => {
 
                 <div className="bg-secondary text-secondary-foreground rounded-xl px-4 py-3 shadow-sm max-w-xl">
 
-                  {turn.content}
+                  <ReactMarkdown>
+                    {turn.content}
+                  </ReactMarkdown>
 
                   {turn.chunkIDs && (
                     <div className="text-xs mt-3 opacity-70">

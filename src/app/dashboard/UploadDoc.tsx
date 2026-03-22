@@ -65,7 +65,7 @@ const UploadDoc = () => {
         return;
       }
       setResult(JSON.stringify(rawData));
-      toast.success(result);
+      toast.success("Document ingested - KB generated.");
       addDocument({
         documentID: rawData.documentID,
         source: rawData.source,
@@ -73,6 +73,7 @@ const UploadDoc = () => {
       });
     } catch (error) {
       // Set error in result
+      toast.error("Something went wrong, document ingestion failed.")
       console.log("Error in documnet reponse :: ", error);
       setResult("Error in document ingestion, please try again");
     } finally {
